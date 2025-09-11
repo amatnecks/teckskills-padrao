@@ -25,3 +25,11 @@ app.use(morgan('combined', { stream: fileLog}));
 app.use (routes);
 
 export { app };
+
+// Testar a conexão
+import { database } from './database/database';
+
+(async () => {
+    console.log(await database.query('select now() as data_atual', []));
+})();
+
