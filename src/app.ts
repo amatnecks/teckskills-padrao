@@ -28,3 +28,11 @@ app.use (errorHandling);
 
 
 export { app };
+
+// Testar a conexão
+import { database } from './database/database';
+
+(async () => {
+    console.log(await database.query('select now() as data_atual', []));
+})();
+
